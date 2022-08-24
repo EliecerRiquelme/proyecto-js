@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    background-image: url(../assets/img/imagen-fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+nav{
+    background-color: black;
+    color: white;
+    height: 80px;
+}
+.texto-nav{
+    font-size: 32px;
+
+}
+.titulo{
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+}
+.subtitulo{
+    text-align: center;
+    margin: 10px;
+
+}
+.Datos{
+    margin:0 auto;
+    display: flex;     
+    flex-direction: column; 
+    justify-content: center;
+    max-width: 500px;
+    padding: 20px;
+    height: 400px;
+    
+    
+}
+.comentario{
+    text-align: center;
+    font-size: 24px;
+    color: rgb(250, 16, 16);
+    background-color: rgba(245, 245, 220, 0.527);
+}
+
+footer{
+    background-color: black;
+    color: white;
+    height: 80px;
+}
+.Redes{
+    font-size: 30px;
+    margin-left: 40px ;
+    text-align: center;
+}
+.iconos{
+    display: flex;
+    justify-content:space-around;
+    height: 100px;
+    
+}
