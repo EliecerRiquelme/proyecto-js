@@ -1,87 +1,142 @@
-let nombre;
-function pedirNombre() {
-  alert("Bienvenido Boticueva ");
-  nombre = prompt("Ingresa tu nombre");
+let mensaje = "Ingresar Nombre";
+let mensaje1 = "Ingresar alguna Opcion:\n 1- Comprar Productos \n 2- Salir";
+const carrito = [];
+const productos =[{id:1 ,descripcion:"Mojitos", precio: 8900, cantidad:10},
+				  {id:2 ,descripcion:"Ramazotti", precio: 9900, cantidad:10},
+				  {id:3 ,descripcion:"Terremoto", precio: 6900, cantidad:10},
+				  {id:4 ,descripcion:"Piscola", precio: 7900, cantidad:10},
+				  {id:5 ,descripcion:"Gin Tonic", precio: 5900, cantidad:10},
+];
+let respuesta;
+let nuevoObjeto=[];
 
-  while (nombre === "") {
-    nombre = prompt("Ingresa tu nombre");
-  }
-
-  let edad = parseInt(prompt("Cúal es tu edad?"));
-
-  if (edad >= 18) {
-    alert(" Hola " + nombre + ", espero poder embriagarte este día \n Haz tu pedido! ");
-    eleccionProductos();
-  } else {
-    alert(" Eres menor de edad !!, pide permiso a tus padres!");
-  }
-  
-  return nombre;
+class productoCarrito {
+	constructor (objeto){
+	this.id = objeto.id;
+	this.descripcion = objeto.descripcion;
+	this.precio = objeto.precio;
+	this.cantidad = objeto.cantidad;
+	}
+	
+}         
+function validarAlerta (mensaje){
+	
+    let entrada = prompt(mensaje);
+	   while (entrada =="" || entrada == null){		
+		   alert("No se cargaron datos");
+		   entrada= prompt(mensaje);
+	   }
+	return respuesta = entrada;	
 }
-let producto;
 
-function eleccionProductos() {
-  do {
-    producto = parseInt(
-      prompt("Que Trago elejiras ? \n1)MOJITO\n2)RAMAZZOTTI\n3)GiIN TÓNIC")
-    );
-  } while (producto !== 1 && producto !== 2 && producto !== 3);
+function menuPrincipal (){
+	validarAlerta(mensaje1);
+	 parseInt(respuesta);  
+      
+     switch (respuesta){
+       case "1":
+		menuDeProductos();
+	   break;
+	   
+	   case "2":
+		salir(false);
+	   break;
+	   
+	   default:
+		alert("opcion mal Ingresada");
+		menuPrincipal(); 
+	 }
+}	
 
-  switch (producto) {
-    case 1:
-      return "MOJITO";
-    case 2:
-      return "RAMAZZOTTI";
-    case 3:
-      return "GiIN TÓNIC";
-  }
-};
+function menuDeProductos() {
+	let mostrarProductos="";
+	let x=1;
+	productos.forEach((i)=> {
+	  mostrarProductos+= (i.id + " - " + i.descripcion + " $ " + i.precio + "Cantidad :" + i.cantidad+"\n");
+	 x++;
+   });
+   let menuProductos=(mostrarProductos+(x)+" - Finalizar Compra \n" + (x+1)+ " - Volver");
+   validoMenuProductos(menuProductos, x);
+}
 
-function precios(nombre) {
-  if (nombre === "MOJITO") {
-    return 23900;
-  } else if (nombre === "RAMAZZOTTI") {
-    return 28900;
-  } else {
-    return 29900;
-  }
-};
+function validoMenuProductos(menuProductos,x){
+	validarAlerta(menuProductos);
+	  if (respuesta == x){
+          if (carrito.length == 0){
+			alert ("carrito Vacio");
+			menuDeProductos();
+		  }else {
+            mostrandoCarrito();
+		  }
+		  
+	  } else if (respuesta == x+1){
+		alert ("Eliminando datos del Carrito");
+		carrito =[];
+		console.log(carrito);
+		menuPrincipal();
+	  }	else if (respuesta > 0 && respuesta < productos.length+1){
+		buscoProductos();
+	  }	else {
+	  alert ("Opcion mal ingresada")
+      menuDeProductos();
+	  } 
+}		
+function buscoProductos(){
+	var cantidad=1;
+	productos.map(function(producto){
+		if (producto.id == respuesta){
+			nuevoObjeto ={id:producto.id,
+				descripcion:producto.descripcion,
+				precio: producto.precio,
+				cantidad: cantidad,};
+				return nuevoObjeto;
+		}	
+	});
+	
+	agregarProductos(nuevoObjeto);
+}
 
-let total = 0;
-let texto = "";
+function agregarProductos(objeto){
+	
+	const resultado = carrito.some((elemento) => elemento.id == respuesta);
+	if (resultado == false){
+		const nuevoCarrito  = new productoCarrito (nuevoObjeto);
+		carrito.push (nuevoCarrito);
+		alert("agregando productos");
+	} else {
+		carrito.filter((elemento)=>{
+			 if (elemento.id == respuesta) {elemento.cantidad++}
+			});
+			alert("agregando productos");
+			
+	}
+    menuDeProductos();
+}
 
-function cobrar(producto, precio, nombre) {
-  alert(
-    nombre.toUpperCase() +
-      ", Haz elegido un " +
-      producto +
-      " y su precio es de $ " +
-      precio
-  );
+function mostrandoCarrito(){
+	let mostrarCarrito="";
+ 	let subTotal=0;
+ 	let Total=0;	
+ 	carrito.forEach((i)=> {
+		subTotal = i.precio*i.cantidad;
+		Total+=subTotal;
+    	mostrarCarrito+= (i.descripcion + " $ " + i.precio + " Cantidad : " + i.cantidad + " Sub Total "+ subTotal +"\n");
+ });
+   alert(mostrarCarrito +"\n Total a Pagar $ "+Total);
+   salir (true);
+}
 
-  alert("Se agrego un " + nombreproducto.toUpperCase() + " a tu compra.");
-  texto += "Producto " + nombreproducto + "- Precio : " + "$" + precio + "\n";
-  total += precio;
-
-  let seguir = confirm(
-    "Desea agregar otro producto? (Preciona 'Cancelar' para ir a pagar.) "
-  );
-  if (seguir) {
-    nombreproducto = eleccionProductos();
-    precio = precios(nombreproducto);
-    cobrar(nombreproducto, precio, nombreCliente);
-  } else {
-    alert("Carrito :\n" + texto + "\n TOTAL: $" + total + "\n");
-    let pago = parseInt(prompt("Con cuanto desea pagar ? "));
-    if (pago > total) {
-      alert("Gracias ! Su vuelto es  $" + (pago - total));
-    } else {
-      alert("No le alcanza! ");
+function salir(saludo){
+	
+	if (saludo == false){
+	    alert ("Gracias Por Beber junto a nosotros");
+		 return; 
+	} else{
+	    alert ("Gracias Por su Compra atte Alcoholicos Anonimos!");
+		return;
     }
-  }
-};
+}
 
-let nombreCliente = pedirNombre();
-let nombreproducto = eleccionProductos();
-let precio = precios(nombreproducto);
-cobrar(nombreproducto, precio, nombreCliente);
+validarAlerta(mensaje);
+alert ("Bienvenido/a " + respuesta + " a Boticueva");
+menuPrincipal();
