@@ -4,61 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Boticueva</title>
 </head>
 <body>
-
     <nav>
-        <h2 class="texto-nav">BOTICUEVA </h2>
-  
-        <div class="iconos">
-          <i class="bi bi-facebook"></i>
-          <i class="bi bi-instagram"></i>
-          <i class="bi bi-youtube"></i>
+      <h2 class="texto-nav">BOTICUEVA</h2>
+
+      <div class="iconos">
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-youtube"></i>
+      </div>
+    </nav>
+
+    <main>
+        <div>
+            <h1 id="titulo" class="titulo1"></h1>
         </div>
-      </nav>
-  
-      <main>
-          <div>
-              <h1 class="titulo">Procesando tu pedido</h1>
-          </div>
-          <div >
-              <h2 class="subtitulo">Completa tus datos de envío</h2>
-          </div>
-          <form action=""  method="post" class="Datos" >
-              <label for="Nombre">Nombre</label>
-              <input type="text" name="Nombre">
-              <label for="Apellido">Apellido</label>
-              <input type="text" name="Apellido">
-              <label for="Dirección">Dirección</label>
-              <input type="text" name="Dirección">
-              <label for="Comuna">Comuna</label>
-              <input type="text" name="Comuna">
-              <label for="Región">Región</label>
-              <input type="text" name="Región">
-              <label for="comentario">Comentario (opcional)</label>
-              <textarea name="comentario"></textarea>
-      
-              <input type="submit" value="Confirmar" class="btn">
-          </form>
-  
-          <div>
-              <h3 class="comentario">Gracias por tu compra! tus productos serán despachados a la brevedad.</h3>
-          </div>
-       </main>
-       <footer>
-          <div class="Redes">
-              <h3 class="Redes">Redes Sociales</h3>
-          </div>
-          
-        <div class="iconos">
-          <i class="bi bi-facebook"></i>
-          <i class="bi bi-instagram"></i>
-          <i class="bi bi-youtube"></i>
+
+        <div id="texto" class="texto1">
         </div>
-        </footer>
- <script src="./js/main.js"></script>   
+
+        <section>
+          <h3>Si Estás en una de estas comunas tu despacho será gratis !</h3>
+          <ul id="comunas"></ul>
+        </section>
+        
+        <h4>revisa otras opciones que tenemos disponibles :</h4>
+        
+        <section id="tarjetas">
+
+        </section>
+
+        <div>
+            <h3 id="comentario" class="comentario3">Gracias por tu compra!</h3>
+        </div>
+     </main>
+     <footer>
+        <div class="Redes">
+            <h3 class="Redes">Redes Sociales</h3>
+        </div>
+        
+      <div class="iconos">
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-youtube"></i>
+      </div>
+
+     </footer>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+ <script src="./js/index.js"></script>   
 </body>
 </html>
