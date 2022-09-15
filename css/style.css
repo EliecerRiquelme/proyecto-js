@@ -61,4 +61,14 @@ footer{
     
 }
 
-
+#boton_ver{
+    width: 100px;
+    height: 60px;
+    margin-left: 60px;
+    border-radius: 10px;
+    background-color: azure;
+}
+#boton_ver:hover{
+    background-color: red;
+   
+}

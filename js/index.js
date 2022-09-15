@@ -20,25 +20,28 @@ for (let comuna of comunas){
 }
 
 //Ejemplo Aplicado de Plantillas Litrales e InnerHTMl para crear 4 tarjetas de productos
-
+let boton= document.getElementById("boton_ver");
 const productos = [{id:1 ,nombre:"Mojitos", imagen:"mojito.jpg", precio: 8900},
                   {id:2 ,nombre:"Ramazotti", imagen:"ramazzotti.jpg", precio: 9900},
                   {id:3 ,nombre:"Terremoto", imagen:"terremoto.jpg", precio: 6900},
                   {id:4 ,nombre:"Piscola", imagen:"piscola.jpg", precio: 7900}
                 ];
 
+boton.addEventListener("click", function(){
  for (const producto of productos) {
-        const contenedor = document.getElementById("tarjetas");
-        let tarjetas = document.createElement("div");
-        tarjetas.className= "col-md-3"
-        tarjetas.innerHTML = `<div class="card">
-                                <img src="../assets/img/${producto.imagen}" class="card-img-top" alt="..."></img>
-                                <div class="card-body">
-                                <h5 class="card-title">ID: ${producto.id}</h5>
-                                <p class="card-text"> Producto: ${producto.nombre}</p>
-                                <p class="card-text">$ ${producto.precio}</p>
-                                <a href="#" class="btn btn-primary">Agregar</a>
-                                </div>
-                             </div>`;
+     const contenedor = document.getElementById("tarjetas");
+    let tarjetas = document.createElement("div");
+     tarjetas.className= "col-md-3";
+    tarjetas.innerHTML = `<div class="card " >
+        <img src="./assets/img/${producto.imagen}" class="card-img-top" alt="ConjuntoMorado"></img>
+        <div class="card-body">
+        <h5 class="card-title">ID: ${producto.id}</h5>
+        <p class="card-text"> Producto: ${producto.nombre}</p>
+        <p class="card-text">$ ${producto.precio}</p>
+        <a href="#" class="btn btn-primary">Agregar</a>
+        </div>
+        </div>`;
 contenedor.appendChild(tarjetas);
-}            
+}      
+});        
+
