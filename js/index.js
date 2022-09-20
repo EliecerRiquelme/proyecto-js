@@ -27,6 +27,16 @@ const productos = [{id:1 ,nombre:"Mojitos", imagen:"mojito.jpg", precio: 8900},
                   {id:4 ,nombre:"Piscola", imagen:"piscola.jpg", precio: 7900}
                 ];
 
+ function obtenerProductoLS(){
+    return JSON.parse(localStorage.getItem("productos")) || [];
+ } ;
+                    
+ function guardarproductosLS(productos){
+    localStorage.setItem("productos", JSON.stringify(productos))
+};
+                    
+guardarproductosLS(productos);
+
 boton.addEventListener("click", function(){
  for (const producto of productos) {
      const contenedor = document.getElementById("tarjetas");
