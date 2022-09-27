@@ -1,142 +1,46 @@
-let mensaje = "Ingresar Nombre";
-let mensaje1 = "Ingresar alguna Opcion:\n 1- Comprar Productos \n 2- Salir";
-const carrito = [];
-const productos =[{id:1 ,descripcion:"Mojitos", precio: 8900, cantidad:10},
-				  {id:2 ,descripcion:"Ramazotti", precio: 9900, cantidad:10},
-				  {id:3 ,descripcion:"Terremoto", precio: 6900, cantidad:10},
-				  {id:4 ,descripcion:"Piscola", precio: 7900, cantidad:10},
-				  {id:5 ,descripcion:"Gin Tonic", precio: 5900, cantidad:10},
-];
-let respuesta;
-let nuevoObjeto=[];
+// nav
+const navegador = document.getElementById("navegador");
+let nav= document.createElement("nav");
+nav.classList="navbar navbar-light  fixed-top";
+nav.innerHTML = `
+                 <div class="container-fluid">
+                    <a class="navbar-brand" href="#">BOTICUEVA</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contacto</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Conócenos 
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                <li><a class="dropdown-item" href="#">Quines Somos</a></li>
+                                <li><a class="dropdown-item" href="#">Nuestra Historia</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            `;
+navegador.appendChild(nav);
 
-class productoCarrito {
-	constructor (objeto){
-	this.id = objeto.id;
-	this.descripcion = objeto.descripcion;
-	this.precio = objeto.precio;
-	this.cantidad = objeto.cantidad;
-	}
-	
-}         
-function validarAlerta (mensaje){
-	
-    let entrada = prompt(mensaje);
-	   while (entrada =="" || entrada == null){		
-		   alert("No se cargaron datos");
-		   entrada= prompt(mensaje);
-	   }
-	return respuesta = entrada;	
-}
-
-function menuPrincipal (){
-	validarAlerta(mensaje1);
-	 parseInt(respuesta);  
-      
-     switch (respuesta){
-       case "1":
-		menuDeProductos();
-	   break;
-	   
-	   case "2":
-		salir(false);
-	   break;
-	   
-	   default:
-		alert("opcion mal Ingresada");
-		menuPrincipal(); 
-	 }
-}	
-
-function menuDeProductos() {
-	let mostrarProductos="";
-	let x=1;
-	productos.forEach((i)=> {
-	  mostrarProductos+= (i.id + " - " + i.descripcion + " $ " + i.precio + "Cantidad :" + i.cantidad+"\n");
-	 x++;
-   });
-   let menuProductos=(mostrarProductos+(x)+" - Finalizar Compra \n" + (x+1)+ " - Volver");
-   validoMenuProductos(menuProductos, x);
-}
-
-function validoMenuProductos(menuProductos,x){
-	validarAlerta(menuProductos);
-	  if (respuesta == x){
-          if (carrito.length == 0){
-			alert ("carrito Vacio");
-			menuDeProductos();
-		  }else {
-            mostrandoCarrito();
-		  }
-		  
-	  } else if (respuesta == x+1){
-		alert ("Eliminando datos del Carrito");
-		carrito =[];
-		console.log(carrito);
-		menuPrincipal();
-	  }	else if (respuesta > 0 && respuesta < productos.length+1){
-		buscoProductos();
-	  }	else {
-	  alert ("Opcion mal ingresada")
-      menuDeProductos();
-	  } 
-}		
-function buscoProductos(){
-	var cantidad=1;
-	productos.map(function(producto){
-		if (producto.id == respuesta){
-			nuevoObjeto ={id:producto.id,
-				descripcion:producto.descripcion,
-				precio: producto.precio,
-				cantidad: cantidad,};
-				return nuevoObjeto;
-		}	
-	});
-	
-	agregarProductos(nuevoObjeto);
-}
-
-function agregarProductos(objeto){
-	
-	const resultado = carrito.some((elemento) => elemento.id == respuesta);
-	if (resultado == false){
-		const nuevoCarrito  = new productoCarrito (nuevoObjeto);
-		carrito.push (nuevoCarrito);
-		alert("agregando productos");
-	} else {
-		carrito.filter((elemento)=>{
-			 if (elemento.id == respuesta) {elemento.cantidad++}
-			});
-			alert("agregando productos");
-			
-	}
-    menuDeProductos();
-}
-
-function mostrandoCarrito(){
-	let mostrarCarrito="";
- 	let subTotal=0;
- 	let Total=0;	
- 	carrito.forEach((i)=> {
-		subTotal = i.precio*i.cantidad;
-		Total+=subTotal;
-    	mostrarCarrito+= (i.descripcion + " $ " + i.precio + " Cantidad : " + i.cantidad + " Sub Total "+ subTotal +"\n");
- });
-   alert(mostrarCarrito +"\n Total a Pagar $ "+Total);
-   salir (true);
-}
-
-function salir(saludo){
-	
-	if (saludo == false){
-	    alert ("Gracias Por Beber junto a nosotros");
-		 return; 
-	} else{
-	    alert ("Gracias Por su Compra atte Alcoholicos Anonimos!");
-		return;
-    }
-}
-
-validarAlerta(mensaje);
-alert ("Bienvenido/a " + respuesta + " a Boticueva");
-menuPrincipal();
+//Titulo de bienvenida
+let titulo = document.getElementById("titulo");
+titulo.innerText="Tus tragos favoritos siempre!";

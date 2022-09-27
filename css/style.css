@@ -26,6 +26,25 @@ nav{
     margin: 10px;
 
 }
+
+.titulo1 {
+    text-align: center;
+    color: rgb(63, 238, 92);
+    height: 80px;
+}
+.elec-comunas{
+    text-align: center;
+    color: rgb(124, 29, 29);
+    height: 80px;
+    height: 150px; 
+}
+#comunas{
+    list-style: none;
+}
+h4{
+    color:rgb(219, 15, 15) ;
+    margin-left: 50px;
+}
 .Datos{
     margin:0 auto;
     display: flex;     
@@ -42,6 +61,91 @@ nav{
     font-size: 24px;
     color: rgb(250, 16, 16);
     background-color: rgba(245, 245, 220, 0.527);
+}
+
+
+.card{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.totalCompra{
+    
+    text-align: center;
+}
+.card img{
+    width: 80%;
+    margin-top: 10px;
+}
+.carro{
+    width: 1000px;
+    margin-left: 200px;
+    margin-top: 100px;
+    background-color: #db1e1e;
+}
+.producto-carro{
+    display: flex;
+    align-items: center;
+    
+}
+.contenido-carro{
+    margin: 20px;
+    width: 90px;
+    width: 180px;
+}
+.img-carro{
+    height: 70px;
+    width: 70px;
+
+}
+.btn{
+    background-color: #9dcc1d;
+}
+
+.masOpciones{
+    height: 150px;
+}
+.btn-extra{
+    display: flex;
+    justify-content: center;
+}
+.boton-extra{
+    background-color:#19eb2a ;
+}
+.compra-concretada{
+    display: inline-block;
+    justify-content: center;
+    height: 100px;
+    text-align: center;
+    
+}
+#finalizandoCompra{
+    height: 50px;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(167, 2, 2);
+}
+.btn-formu{
+    margin-left: 500px;
+    margin-bottom: 100px;
+}
+.formu{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 500px;
+  padding: .5rem;
+}
+.despacho{
+    width: 600px;
+    height: 200px;
+    text-align: center;
+    margin-left:400px;
+    font-size: 24px;
+    
 }
 
 footer{
@@ -72,3 +176,4 @@ footer{
     background-color: red;
    
 }
+
