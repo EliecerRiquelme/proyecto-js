@@ -1,0 +1,26 @@
+[
+    {
+        "id":1 ,
+        "nombre":"Mojitos", 
+        "imagen":"./assets/img/mojito.jpg", 
+        "precio": 8900
+    },
+    {
+        "id":2 ,
+        "nombre":"Ramazotti", 
+        "imagen":"./assets/img/ramazzotti.jpg", 
+        "precio": 9900
+    },
+    {
+        "id":3 ,
+        "nombre":"Terremoto", 
+        "imagen":"./assets/img/terremoto.jpg", 
+        "precio": 6900
+    },
+    {
+        "id":4 ,
+        "nombre":"Piscola", 
+        "imagen":"./assets/img/piscola.jpg", 
+        "precio": 7900
+    }
+]
