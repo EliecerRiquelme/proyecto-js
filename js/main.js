@@ -43,4 +43,4 @@ navegador.appendChild(nav);
 
 //Titulo de bienvenida
 let titulo = document.getElementById("titulo");
-titulo.innerText="TUS ACCESORIOS FAVORITOS LOS ENCUENTRAS AQUÍ !";
+titulo.innerText="Tus tragos favoritos!";

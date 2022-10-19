@@ -42,8 +42,11 @@ nav{
     list-style: none;
 }
 h4{
-    color:rgb(219, 15, 15) ;
-    margin-left: 50px;
+    color:rgb(19, 12, 12) ;
+    margin-top: 50px;
+    background-color: rgba(240, 255, 255, 0.623);
+    text-align: center;
+    border-radius: 15px;
 }
 .Datos{
     margin:0 auto;
@@ -53,7 +56,7 @@ h4{
     max-width: 500px;
     padding: 20px;
     height: 400px;
-    
+   
     
 }
 .comentario{
@@ -63,27 +66,55 @@ h4{
     background-color: rgba(245, 245, 220, 0.527);
 }
 
+#tarjetas{
+    background-color: rgba(245, 245, 220, 0.527);
+    height: 400px;
+    align-items: center;
+    border-radius: 50px;
+}
+.card-img-top{
+    height: 200px;
+    width: 200px;
+    align-items: center;
+    margin-left: 20px;
+    border-radius: 12px;
+}
 
 .card{
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
+    background-color: azure;
+    width:200px;
+    height: 350px;
+    border-radius: 20px;
+}
+
+.card:hover{
+    background-color: rgb(89, 182, 182);
+    box-shadow: 2px 4px rgb(213, 216, 22);
 }
 .totalCompra{
     
     text-align: center;
 }
 .card img{
-    width: 80%;
+    width: 150px;
+    height: 150px;
     margin-top: 10px;
+    border-radius: 30px;
 }
 .carro{
-    width: 1000px;
+    width: 800px;
     margin-left: 200px;
     margin-top: 100px;
-    background-color: #db1e1e;
+    background-color: #f3f3f3b9;
+    border-radius: 15px;
+    color: black;
+
 }
+
 .producto-carro{
     display: flex;
     align-items: center;
